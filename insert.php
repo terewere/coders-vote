@@ -1,8 +1,14 @@
 
 <?php
+  require_once('credentials.php');
+  require_once('create_table.php');
 
 function vote($voter, $candidate){
-  require_once('credentials.php');
+
+ global $servername;
+ global $username;
+ global $password;
+ global $dbname;
 
   try {
  
@@ -20,11 +26,16 @@ function vote($voter, $candidate){
 
     
 
-
-   
   
   } catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
+
+    echo "Error: " . $e->getMessage() . '<br>';
+
+    echo 'Creating DATABASE.....' . '<br>';
+
+    createTable();
+    echo 'Try voting again.....' . '<br>';
+
   }
   $conn = null;
 

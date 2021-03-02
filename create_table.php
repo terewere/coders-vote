@@ -1,15 +1,22 @@
 <?php
 require_once('credentials.php');
 
+function createTable(){
+
+ global $servername;
+ global $username;
+ global $password;
+ global $dbname;
+
 try {
 
-  $pdo = new PDO("mysql:host=$servername", $username, $password);
+$pdo = new PDO("mysql:host=$servername", $username, $password);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $pdo->query("CREATE DATABASE IF NOT EXISTS $dbname");
 $pdo->query("use $dbname");
 
-echo "DB vote created successfully" . PHP_EOL;
+echo "DB vote created successfully <br>" ;
 
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   // set the PDO error mode to exception
@@ -24,10 +31,13 @@ echo "DB vote created successfully" . PHP_EOL;
 
   // use exec() because no results are returned
   $conn->exec($sql);
-  echo "Table votes created successfully" . PHP_EOL;
+  echo "Table votes created successfully <br>";
 } catch(PDOException $e) {
-  echo  $e->getMessage() . PHP_EOL;
+  echo  $e->getMessage() . "<br>";
 }
 
 $conn = null;
+
+}
+
 ?>

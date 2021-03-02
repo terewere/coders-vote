@@ -1,5 +1,5 @@
 <?php 
- //require_once('create_table.php');
+//  require_once('create_table.php');
  require_once('insert.php');
 
 
@@ -43,7 +43,7 @@ th {
     </style>
 </head>
 <body>
-<h1 style="color:green">Zongo Coders Election 2020 Polls</h1>
+<h1 style="color:green">Zongo Coders Election 2021 Polls</h1>
 
 
 <h2 > <?php echo 'Thank you, ' . $_GET['name'] ;?></h2>
